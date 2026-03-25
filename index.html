@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen Kids — Screen Time That Actually Teaches</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sun: #F5C842; --sun-deep: #E8A800; --ink: #1A1200; --ink-soft: #3D3100;
+    --cream: #FFFDF4; --sage: #3D7A5F; --sage-light: #EBF5EF;
+    --coral: #F26B4E; --sky: #D6EDFF; --mist: #F7F4EE;
+    --red: #E53935; --red-light: #FFEBEE;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(255,253,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(232,200,64,0.15); }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+  .nav-logo .dot { width: 10px; height: 10px; background: var(--sun); border-radius: 50%; display: inline-block; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 15px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { background: var(--ink) !important; color: var(--sun) !important; padding: 10px 24px; border-radius: 100px; font-weight: 600 !important; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, #FFF3B0 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 10% 80%, #D6EDFF 0%, transparent 60%), radial-gradient(ellipse 30% 30% at 90% 70%, #EBF5EF 0%, transparent 60%); z-index: 0; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--sun); color: var(--ink); padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 32px; position: relative; z-index: 1; animation: fadeUp 0.6s ease both; }
+  .hero-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(48px, 8vw, 92px); font-weight: 700; line-height: 1.05; color: var(--ink); max-width: 900px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.1s ease both; }
+  .hero h1 em { font-style: italic; font-weight: 300; color: var(--sage); }
+  .hero h1 .highlight { position: relative; display: inline-block; }
+  .hero h1 .highlight::after { content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 8px; background: var(--sun); z-index: -1; border-radius: 4px; }
+  .hero-sub { font-size: 20px; color: var(--ink-soft); max-width: 560px; line-height: 1.65; margin: 28px auto 48px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--ink); color: var(--sun); padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(26,18,0,0.2); }
+  .btn-secondary { background: transparent; color: var(--ink); padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 500; text-decoration: none; border: 2px solid rgba(26,18,0,0.15); cursor: pointer; transition: border-color 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-secondary:hover { border-color: var(--ink); background: var(--mist); }
+  .hero-trust { margin-top: 56px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeUp 0.6s 0.4s ease both; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+  .trust-divider { width: 4px; height: 4px; border-radius: 50%; background: #ccc; }
+  .hero-cards { margin-top: 64px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; animation: fadeUp 0.6s 0.5s ease both; }
+  .video-card { background: white; border-radius: 20px; overflow: hidden; width: 200px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); transition: transform 0.3s; cursor: pointer; }
+  .video-card:nth-child(2) { transform: translateY(-12px); }
+  .video-card:hover { transform: translateY(-6px) !important; }
+  .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .video-card-info { padding: 12px; }
+  .video-card-title { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 8px; }
+  .video-card-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+  .badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .badge-math { background: #FFF3B0; color: #7A5F00; }
+  .badge-science { background: #EBF5EF; color: #2D6B4F; }
+  .badge-language { background: #D6EDFF; color: #1A5A8A; }
+  .badge-nature { background: #F0EBF5; color: #5A3D7A; }
+  .score-badge { background: var(--sun); color: var(--ink); }
+
+  section { padding: 100px 24px; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.1; color: var(--ink); max-width: 700px; }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--sage); }
+  .section-sub { font-size: 18px; color: var(--ink-soft); line-height: 1.65; max-width: 560px; margin-top: 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--mist); }
+  .how-header { text-align: center; margin-bottom: 72px; }
+  .how-header .section-title { margin: 0 auto; }
+  .how-header .section-sub { margin: 20px auto 0; text-align: center; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+  .step { background: white; border-radius: 24px; padding: 40px 36px; position: relative; overflow: hidden; transition: transform 0.3s; }
+  .step:hover { transform: translateY(-4px); }
+  .step-number { font-family: 'Fraunces', serif; font-size: 80px; font-weight: 700; color: var(--sun); opacity: 0.3; position: absolute; top: -10px; right: 20px; line-height: 1; pointer-events: none; }
+  .step-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 24px; }
+  .step:nth-child(1) .step-icon { background: #FFF3B0; }
+  .step:nth-child(2) .step-icon { background: #EBF5EF; }
+  .step:nth-child(3) .step-icon { background: #D6EDFF; }
+  .step h3 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+  .step p { font-size: 16px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* VETTING — YES/NO only, no pipeline details */
+  .vet-section { background: var(--ink); padding: 100px 24px; }
+  .vet-header { text-align: center; margin-bottom: 72px; }
+  .vet-header .section-label { color: var(--sun); }
+  .vet-header .section-title { color: white; margin: 0 auto; }
+  .vet-header .section-title em { color: var(--sun); }
+  .vet-header .section-sub { color: rgba(255,255,255,0.65); margin: 20px auto 0; text-align: center; }
+
+  .vet-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+  .vet-col { border-radius: 24px; padding: 40px; }
+  .vet-col.yes { background: rgba(61,122,95,0.15); border: 1px solid rgba(61,122,95,0.3); }
+  .vet-col.no { background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.25); }
+  .vet-col-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .vet-col-badge { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .vet-col.yes .vet-col-badge { background: var(--sage); }
+  .vet-col.no .vet-col-badge { background: var(--red); }
+  .vet-col-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; }
+  .vet-col.yes .vet-col-title { color: #7ECFAA; }
+  .vet-col.no .vet-col-title { color: #EF9A9A; }
+  .vet-col-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .vet-items { display: flex; flex-direction: column; gap: 16px; }
+  .vet-item { display: flex; align-items: flex-start; gap: 12px; }
+  .vet-item-dot { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+  .vet-col.yes .vet-item-dot { background: rgba(61,122,95,0.3); color: #7ECFAA; }
+  .vet-col.no .vet-item-dot { background: rgba(229,57,53,0.2); color: #EF9A9A; }
+  .vet-item-text { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .vet-item-text strong { color: white; font-weight: 600; }
+  .vet-item-text span { font-size: 13px; color: rgba(255,255,255,0.45); display: block; margin-top: 3px; }
+
+  /* Score bars */
+  .vet-score-bar { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 36px; margin-bottom: 32px; }
+  .vet-score-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: white; margin-bottom: 6px; }
+  .vet-score-sub { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 32px; }
+  .score-bars { display: flex; flex-direction: column; gap: 16px; }
+  .score-row { display: flex; align-items: center; gap: 16px; }
+  .score-label { font-size: 14px; color: rgba(255,255,255,0.7); width: 220px; flex-shrink: 0; }
+  .score-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 4px; }
+  .score-val { font-size: 13px; font-weight: 700; width: 36px; text-align: right; flex-shrink: 0; }
+  .score-legend { display: flex; gap: 24px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.45); }
+  .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+
+  /* not sentiment */
+  .not-sentiment { background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); border-radius: 20px; padding: 32px 36px; display: flex; gap: 24px; align-items: flex-start; }
+  .not-sentiment-icon { font-size: 36px; flex-shrink: 0; }
+  .not-sentiment-text h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: white; margin-bottom: 10px; }
+  .not-sentiment-text p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+  .not-sentiment-text p strong { color: var(--sun); }
+
+  /* VIDEO SHOWCASE */
+  .showcase { background: var(--cream); }
+  .showcase-header { margin-bottom: 56px; }
+  .showcase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .showcase-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+  .showcase-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .showcase-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .showcase-card-body { padding: 16px; }
+  .showcase-card-title { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .showcase-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .showcase-card-channel { font-size: 12px; color: #888; }
+  .stars { color: var(--sun-deep); font-size: 12px; }
+  .age-tag { font-size: 11px; font-weight: 600; color: var(--sage); background: var(--sage-light); padding: 3px 10px; border-radius: 100px; }
+  .showcase-note { text-align: center; margin-top: 40px; font-size: 15px; color: var(--ink-soft); }
+  .showcase-note strong { color: var(--sage); }
+
+  /* DASHBOARD */
+  .dashboard-section { background: var(--mist); overflow: hidden; }
+  .dashboard-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .dashboard-features { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+  .dash-feature { display: flex; align-items: flex-start; gap: 16px; }
+  .dash-feature-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--sage-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .dash-feature-text h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .dash-feature-text p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .dashboard-mockup { background: #FAF7F2; border-radius: 28px; padding: 28px; box-shadow: 0 24px 80px rgba(0,0,0,0.12); transform: rotate(2deg); transition: transform 0.3s; }
+  .dashboard-mockup:hover { transform: rotate(0deg); }
+  .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .dash-greeting { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #1A1200; }
+  .dash-date { font-size: 13px; color: #888; }
+  .dash-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .dash-stat { background: white; border-radius: 14px; padding: 14px; text-align: center; }
+  .dash-stat-value { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: #1A1200; }
+  .dash-stat-label { font-size: 11px; color: #888; margin-top: 2px; }
+  .dash-children { display: flex; flex-direction: column; gap: 10px; }
+  .dash-child { background: white; border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 14px; }
+  .dash-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .dash-avatar.emma { background: #FFF3B0; }
+  .dash-avatar.jack { background: #D6EDFF; }
+  .dash-child-info { flex: 1; }
+  .dash-child-name { font-size: 14px; font-weight: 600; color: #1A1200; }
+  .dash-child-stat { font-size: 12px; color: #888; margin-top: 2px; }
+  .dash-progress { height: 4px; background: #EEE; border-radius: 2px; margin-top: 6px; }
+  .dash-progress-fill { height: 100%; border-radius: 2px; background: #3D7A5F; }
+  .dash-convo { background: #FFF8DC; border-radius: 14px; padding: 14px; margin-top: 12px; border-left: 3px solid #E8A800; }
+  .dash-convo-label { font-size: 11px; font-weight: 700; color: #7A5F00; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .dash-convo-q { font-size: 13px; color: #3D3100; line-height: 1.5; }
+
+  /* PRICING */
+  .pricing { background: var(--cream); }
+  .pricing-header { text-align: center; margin-bottom: 56px; }
+  .pricing-header .section-title { margin: 0 auto; }
+  .pricing-toggle { display: inline-flex; background: white; border-radius: 100px; padding: 4px; margin-top: 32px; gap: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .toggle-btn { padding: 10px 24px; border-radius: 100px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; background: transparent; color: var(--ink-soft); font-family: 'DM Sans', sans-serif; }
+  .toggle-btn.active { background: var(--ink); color: var(--sun); }
+  .save-tag { background: var(--sage); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
+  .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .pricing-card { background: white; border-radius: 28px; padding: 36px; border: 2px solid transparent; transition: transform 0.3s; position: relative; overflow: hidden; }
+  .pricing-card:hover { transform: translateY(-4px); }
+  .pricing-card.featured { background: var(--ink); border-color: var(--sun); }
+  .pricing-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: 18px; right: -28px; background: var(--sun); color: var(--ink); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; padding: 5px 44px; transform: rotate(45deg); }
+  .pricing-card.entry { border: 2px solid rgba(26,18,0,0.08); }
+  .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .pricing-card.featured .plan-name { color: var(--sun); }
+  .pricing-card.entry .plan-name { color: #888; }
+  .plan-price { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .pricing-card.featured .plan-price { color: white; }
+  .plan-price sup { font-size: 20px; font-weight: 400; vertical-align: top; margin-top: 10px; display: inline-block; }
+  .plan-period { font-size: 13px; color: #888; margin-top: 4px; margin-bottom: 8px; }
+  .pricing-card.featured .plan-period { color: rgba(255,255,255,0.5); }
+  .plan-tagline { font-size: 14px; color: var(--ink-soft); margin-bottom: 28px; line-height: 1.5; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .pricing-card.featured .plan-tagline { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.1); }
+  .pricing-card.entry .plan-tagline { color: #aaa; }
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .plan-features li { font-size: 14px; color: var(--ink-soft); display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+  .pricing-card.featured .plan-features li { color: rgba(255,255,255,0.8); }
+  .pricing-card.entry .plan-features li { color: #888; }
+  .check { color: var(--sage); font-weight: 700; flex-shrink: 0; }
+  .pricing-card.featured .check { color: var(--sun); }
+  .lock { color: #ccc; flex-shrink: 0; }
+  .lock-text { color: #bbb !important; text-decoration: line-through; }
+  .plan-btn { width: 100%; padding: 14px; border-radius: 100px; border: 2px solid var(--ink); background: transparent; font-size: 15px; font-weight: 600; color: var(--ink); cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .plan-btn:hover { background: var(--ink); color: var(--sun); }
+  .pricing-card.featured .plan-btn { background: var(--sun); color: var(--ink); border-color: var(--sun); }
+  .pricing-card.featured .plan-btn:hover { background: var(--sun-deep); border-color: var(--sun-deep); }
+  .pricing-card.entry .plan-btn { border-color: rgba(0,0,0,0.15); color: #888; }
+  .pricing-card.entry .plan-btn:hover { background: var(--mist); color: var(--ink); border-color: var(--ink); }
+  .upgrade-note { background: var(--sage-light); border-radius: 12px; padding: 12px 16px; margin-top: 16px; font-size: 13px; color: var(--sage); line-height: 1.5; text-align: center; }
+  .pricing-footer { text-align: center; margin-top: 40px; font-size: 14px; color: #888; }
+  .pricing-footer strong { color: var(--sage); }
+
+  /* WAITLIST */
+  .waitlist { background: linear-gradient(135deg, #FFF8DC 0%, #EBF5EF 100%); text-align: center; padding: 100px 24px; }
+  .waitlist .section-title { margin: 0 auto 16px; }
+  .waitlist .section-sub { margin: 0 auto 48px; text-align: center; }
+  .email-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+  .email-input { flex: 1; min-width: 260px; padding: 16px 24px; border-radius: 100px; border: 2px solid rgba(26,18,0,0.12); font-size: 16px; font-family: 'DM Sans', sans-serif; outline: none; background: white; transition: border-color 0.2s; }
+  .email-input:focus { border-color: var(--sage); }
+  .email-input::placeholder { color: #aaa; }
+  .waitlist-note { margin-top: 20px; font-size: 13px; color: #888; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 60px 24px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand { max-width: 280px; }
+  .footer-logo { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700; color: white; margin-bottom: 12px; }
+  .footer-logo .dot { color: var(--sun); }
+  .footer-tagline { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.5); }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h5 { font-size: 13px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--sun); }
+  .footer-bottom { max-width: 1100px; margin: 32px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-legal a:hover { color: var(--sun); }
+  .footer-copy { color: rgba(255,255,255,0.3); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  @media (max-width: 900px) {
+    .pricing-cards { grid-template-columns: 1fr; max-width: 420px; }
+    .dashboard-inner { grid-template-columns: 1fr; }
+    .dashboard-mockup { transform: none; }
+    .vet-compare { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero-cards { display: none; }
+    .footer-inner { flex-direction: column; }
+    .not-sentiment { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span class="dot"></span>Lumen Kids</div>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#vet">Our standard</a>
+    <a href="#videos">Videos</a>
+    <a href="#dashboard">For Parents</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge"><span class="pulse"></span>AI-vetted educational content</div>
+  <h1>Screen time that<br><span class="highlight">actually teaches</span><br><em>your child.</em></h1>
+  <p class="hero-sub">Lumen Kids uses AI to hand-pick the best educational YouTube videos — so every minute your child watches is a minute well spent.</p>
+  <div class="hero-actions">
+    <a href="#waitlist" class="btn-primary">✦ Get Early Access</a>
+    <a href="#how" class="btn-secondary">See how it works →</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item"><span>🔬</span><span>AI-vetted videos</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span>🧠</span><span>Quiz after every video</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span>📊</span><span>Weekly parent report</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span>⏱️</span><span>Screen time controls</span></div>
+  </div>
+  <div class="hero-cards">
+    <div class="video-card">
+      <img src="https://img.youtube.com/vi/DR-cfDsHCGA/mqdefault.jpg" alt="Counting">
+      <div class="video-card-info">
+        <div class="video-card-title">Counting 1–10 Song</div>
+        <div class="video-card-badges"><span class="badge badge-math">Math</span><span class="badge score-badge">⭐ 89</span></div>
+      </div>
+    </div>
+    <div class="video-card">
+      <img src="https://img.youtube.com/vi/zFtMamMUAVw/mqdefault.jpg" alt="Animals">
+      <div class="video-card-info">
+        <div class="video-card-title">Farm Animals for Kids</div>
+        <div class="video-card-badges"><span class="badge badge-nature">Nature</span><span class="badge score-badge">⭐ 94</span></div>
+      </div>
+    </div>
+    <div class="video-card">
+      <img src="https://img.youtube.com/vi/w36yxLgwUOc/mqdefault.jpg" alt="Science">
+      <div class="video-card-info">
+        <div class="video-card-title">Solar System — Dr. Binocs</div>
+        <div class="video-card-badges"><span class="badge badge-science">Science</span><span class="badge score-badge">⭐ 83</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-label">Simple by design</div>
+      <h2 class="section-title">Learning made <em>effortless</em></h2>
+      <p class="section-sub">Three steps from download to your child's first lesson — and you're in control the whole time.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-icon">🎯</div>
+        <h3>Set your child's profile</h3>
+        <p>Tell us your child's age, interests and daily screen time limit. Lumen Kids builds a personalised feed that matches exactly what they need to learn.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-icon">✨</div>
+        <h3>AI curates the perfect feed</h3>
+        <p>Every video is scored across 12 quality dimensions by our AI — pacing, visual calm, teaching clarity, age-appropriateness. Only the best make it through.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-icon">📈</div>
+        <h3>Watch them grow — literally</h3>
+        <p>After every video, a quick quiz reinforces what they learned. You get a weekly summary of subjects covered, scores and conversation starters for bedtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STANDARD — YES/NO vetting (no pipeline tech details) -->
+<section class="vet-section" id="vet">
+  <div class="container">
+    <div class="vet-header">
+      <div class="section-label">The Lumen Kids standard</div>
+      <h2 class="section-title">We measure what <em>actually matters</em></h2>
+      <p class="section-sub">Not likes, not comments, not view counts. Our AI analyses the real signals that determine whether a video genuinely teaches — or just keeps kids glued to a screen.</p>
+    </div>
+
+    <div class="vet-compare">
+      <div class="vet-col yes">
+        <div class="vet-col-header">
+          <div class="vet-col-badge">✓</div>
+          <div>
+            <div class="vet-col-title">What makes the cut</div>
+            <div class="vet-col-sub">What our AI scores positively</div>
+          </div>
+        </div>
+        <div class="vet-items">
+          <div class="vet-item">
+            <div class="vet-item-dot">✓</div>
+            <div class="vet-item-text">
+              <strong>Slow, deliberate speech</strong>
+              <span>Measured in words per minute — not guessed. Calm, clear narration that gives children time to absorb.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✓</div>
+            <div class="vet-item-text">
+              <strong>Calm, purposeful visuals</strong>
+              <span>Simple animations that support the lesson — not compete with it for attention.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✓</div>
+            <div class="vet-item-text">
+              <strong>Concept repetition and reinforcement</strong>
+              <span>Key ideas revisited multiple times so children actually retain what they hear.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✓</div>
+            <div class="vet-item-text">
+              <strong>Participation prompts</strong>
+              <span>"Can you say it with me?" — the hallmark of content designed to teach, not just entertain.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✓</div>
+            <div class="vet-item-text">
+              <strong>Voice louder than the music</strong>
+              <span>Background music should support the narrator — not drown them out.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vet-col no">
+        <div class="vet-col-header">
+          <div class="vet-col-badge">✕</div>
+          <div>
+            <div class="vet-col-title">What gets rejected</div>
+            <div class="vet-col-sub">Automatic disqualifiers — no exceptions</div>
+          </div>
+        </div>
+        <div class="vet-items">
+          <div class="vet-item">
+            <div class="vet-item-dot">✕</div>
+            <div class="vet-item-text">
+              <strong>Talking too fast</strong>
+              <span>Rapid speech leaves no processing time. Our AI measures exact words per minute — automatically rejected above threshold.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✕</div>
+            <div class="vet-item-text">
+              <strong>Flashing or strobing visuals</strong>
+              <span>Overstimulating effects that hijack attention and suppress active thinking.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✕</div>
+            <div class="vet-item-text">
+              <strong>Screaming or high-energy presenters</strong>
+              <span>Loud, excitable hosts condition children to need constant stimulation just to stay engaged.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✕</div>
+            <div class="vet-item-text">
+              <strong>Hyper-fast scene cuts</strong>
+              <span>Rapid editing is an engagement trick, not a teaching tool. Our AI detects and rejects it.</span>
+            </div>
+          </div>
+          <div class="vet-item">
+            <div class="vet-item-dot">✕</div>
+            <div class="vet-item-text">
+              <strong>Music overpowering the voice</strong>
+              <span>When background music dominates, children follow rhythm — not meaning.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score comparison — no channel names, described by type -->
+    <div class="vet-score-bar">
+      <div class="vet-score-title">How different content types score on our rubric</div>
+      <div class="vet-score-sub">Every video is scored independently — our AI has no favourites.</div>
+      <div class="score-bars">
+        <div class="score-row">
+          <div class="score-label">Slow-paced toddler teaching shows</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:93%;background:#F5C842"></div></div>
+          <div class="score-val" style="color:#F5C842">93</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label">BBC educational animation series</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:91%;background:#F5C842"></div></div>
+          <div class="score-val" style="color:#F5C842">91</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label">Curriculum-based kids science shows</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:88%;background:#7ECFAA"></div></div>
+          <div class="score-val" style="color:#7ECFAA">88</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label">Narrated fact-based explainer channels</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:83%;background:#7ECFAA"></div></div>
+          <div class="score-val" style="color:#7ECFAA">83</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label">High-stimulation sing-along channels</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:28%;background:#EF9A9A"></div></div>
+          <div class="score-val" style="color:#EF9A9A">28</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label">Viral entertainment masquerading as education</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:14%;background:#EF9A9A"></div></div>
+          <div class="score-val" style="color:#EF9A9A">14</div>
+        </div>
+      </div>
+      <div class="score-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#F5C842"></div>Featured content (85+)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7ECFAA"></div>Approved (70–84)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#EF9A9A"></div>Rejected (below 70)</div>
+      </div>
+    </div>
+
+    <div class="not-sentiment">
+      <div class="not-sentiment-icon">🔬</div>
+      <div class="not-sentiment-text">
+        <h4>We don't count likes, comments or views.</h4>
+        <p>
+          Most "curated" kids apps use popularity signals — likes, view counts, watch time. 
+          <strong>We don't.</strong> A video with 500 million views can still damage your child's attention span and teach them nothing. 
+          We analyse actual content — word by word, frame by frame — using multimodal AI that reads 
+          what a child sees and hears. <strong>Popularity is not quality. We measure quality.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SHOWCASE -->
+<section class="showcase" id="videos">
+  <div class="container">
+    <div class="showcase-header">
+      <div class="section-label">What's inside</div>
+      <h2 class="section-title">Every video, <em>rigorously vetted</em></h2>
+      <p class="section-sub">We score each video on content accuracy, teaching pace, visual calm and age-appropriateness. No toy unboxing. No screaming. No brain rot.</p>
+    </div>
+    <div class="showcase-grid">
+      <div class="showcase-card">
+        <img src="https://img.youtube.com/vi/mjlsSYLLOSE/mqdefault.jpg" alt="Math">
+        <div class="showcase-card-body">
+          <div class="showcase-card-title">Basic Math Addition — Noodle Kidz</div>
+          <div class="showcase-card-meta"><span class="badge badge-math">Math</span><span class="age-tag">Ages 3–5</span></div>
+          <div class="showcase-card-meta" style="margin-top:8px"><span class="showcase-card-channel">Noodle Kidz</span><span class="stars">★★★★★</span></div>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://img.youtube.com/vi/ccEpTTZW34g/mqdefault.jpg" alt="Alphabet">
+        <div class="showcase-card-body">
+          <div class="showcase-card-title">The Alphabet Song — Finny The Shark</div>
+          <div class="showcase-card-meta"><span class="badge badge-language">Language</span><span class="age-tag">Ages 0–5</span></div>
+          <div class="showcase-card-meta" style="margin-top:8px"><span class="showcase-card-channel">Finny The Shark</span><span class="stars">★★★★★</span></div>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://img.youtube.com/vi/zFtMamMUAVw/mqdefault.jpg" alt="Animals">
+        <div class="showcase-card-body">
+          <div class="showcase-card-title">Farm Animals — Learn Bright</div>
+          <div class="showcase-card-meta"><span class="badge badge-nature">Nature</span><span class="age-tag">Ages 6–8</span></div>
+          <div class="showcase-card-meta" style="margin-top:8px"><span class="showcase-card-channel">Learn Bright</span><span class="stars">★★★★★</span></div>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://img.youtube.com/vi/w36yxLgwUOc/mqdefault.jpg" alt="Science">
+        <div class="showcase-card-body">
+          <div class="showcase-card-title">Solar System — The Dr. Binocs Show</div>
+          <div class="showcase-card-meta"><span class="badge badge-science">Science</span><span class="age-tag">Ages 6–10</span></div>
+          <div class="showcase-card-meta" style="margin-top:8px"><span class="showcase-card-channel">Peekaboo Kidz</span><span class="stars">★★★★☆</span></div>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://img.youtube.com/vi/DR-cfDsHCGA/mqdefault.jpg" alt="Counting">
+        <div class="showcase-card-body">
+          <div class="showcase-card-title">Counting 1–10 — Singing Walrus</div>
+          <div class="showcase-card-meta"><span class="badge badge-math">Math</span><span class="age-tag">Ages 0–5</span></div>
+          <div class="showcase-card-meta" style="margin-top:8px"><span class="showcase-card-channel">The Singing Walrus</span><span class="stars">★★★★★</span></div>
+        </div>
+      </div>
+      <div class="showcase-card" style="background:linear-gradient(135deg,#FFF3B0,#EBF5EF);display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;min-height:200px;">
+        <div>
+          <div style="font-size:32px;margin-bottom:12px">🔍</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:8px">500+ videos</div>
+          <div style="font-size:14px;color:var(--ink-soft)">across 12 subjects<br>and all age groups</div>
+        </div>
+      </div>
+    </div>
+    <p class="showcase-note">Every video scores <strong>70+ out of 100</strong> on our AI rubric before it reaches your child. High-stimulation entertainment content scores under 35. We reject it automatically.</p>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="dashboard-section" id="dashboard">
+  <div class="container">
+    <div class="dashboard-inner">
+      <div class="dashboard-text">
+        <div class="section-label">For the busy parent</div>
+        <h2 class="section-title">Know exactly what your child <em>learned</em> today.</h2>
+        <p class="section-sub">No more wondering what they watched. Every video, every quiz score, every minute — summarised for you in plain English so you can have a real conversation about it.</p>
+        <div class="dashboard-features">
+          <div class="dash-feature">
+            <div class="dash-feature-icon">💬</div>
+            <div class="dash-feature-text">
+              <h4>Bedtime conversation starters</h4>
+              <p>We tell you exactly what to ask your child tonight based on what they learned today. No prep needed.</p>
+            </div>
+          </div>
+          <div class="dash-feature">
+            <div class="dash-feature-icon">⏱️</div>
+            <div class="dash-feature-text">
+              <h4>Screen time you actually control</h4>
+              <p>Set daily limits per child. When time's up, a friendly screen appears — no tantrums, just gentle boundaries.</p>
+            </div>
+          </div>
+          <div class="dash-feature">
+            <div class="dash-feature-icon">📊</div>
+            <div class="dash-feature-text">
+              <h4>Weekly progress report</h4>
+              <p>Every Monday, a clean summary of subjects covered, quiz scores and screen time lands in your inbox.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-mockup">
+        <div class="dash-header">
+          <div class="dash-greeting">Good evening, Eric 👋</div>
+          <div class="dash-date">Wed, 25 Mar</div>
+        </div>
+        <div class="dash-cards">
+          <div class="dash-stat"><div class="dash-stat-value">7</div><div class="dash-stat-label">Videos today</div></div>
+          <div class="dash-stat"><div class="dash-stat-value">82%</div><div class="dash-stat-label">Quiz avg</div></div>
+          <div class="dash-stat"><div class="dash-stat-value">1h 20m</div><div class="dash-stat-label">Screen time</div></div>
+        </div>
+        <div class="dash-children">
+          <div class="dash-child">
+            <div class="dash-avatar emma">👧</div>
+            <div class="dash-child-info">
+              <div class="dash-child-name">Emma, age 5</div>
+              <div class="dash-child-stat">45min · 4 videos · Math, Language</div>
+              <div class="dash-progress"><div class="dash-progress-fill" style="width:75%"></div></div>
+            </div>
+          </div>
+          <div class="dash-child">
+            <div class="dash-avatar jack">👦</div>
+            <div class="dash-child-info">
+              <div class="dash-child-name">Jack, age 8</div>
+              <div class="dash-child-stat">35min · 3 videos · Science, Space</div>
+              <div class="dash-progress"><div class="dash-progress-fill" style="width:58%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-convo">
+          <div class="dash-convo-label">💬 Tonight's conversation starter</div>
+          <div class="dash-convo-q">"Emma, how many planets are in our solar system? Jack told me he knows!"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-label">Simple pricing</div>
+      <h2 class="section-title">Start free. <em>Grow when ready.</em></h2>
+      <p class="section-sub" style="margin: 16px auto 0; text-align: center;">Every plan includes AI-vetted videos, quizzes and screen time controls. Upgrade anytime — your child's data is always waiting for you.</p>
+    </div>
+    <div class="pricing-cards">
+
+      <!-- EXPLORER -->
+      <div class="pricing-card entry">
+        <div class="plan-name">Explorer</div>
+        <div class="plan-price"><sup>$</sup>3.99</div>
+        <div class="plan-period">per month · no annual lock-in</div>
+        <div class="plan-tagline">Choose the subjects. We handle the rest. Perfect for parents who want filtered content without the full dashboard.</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Choose subjects per child</li>
+          <li><span class="check">✓</span>AI-vetted video feed</li>
+          <li><span class="check">✓</span>Quiz after every video</li>
+          <li><span class="check">✓</span>Screen time limits</li>
+          <li><span class="lock">🔒</span><span class="lock-text">Parent dashboard</span></li>
+          <li><span class="lock">🔒</span><span class="lock-text">Weekly progress report</span></li>
+          <li><span class="lock">🔒</span><span class="lock-text">Bedtime conversation starters</span></li>
+        </ul>
+        <button class="plan-btn">Start free trial</button>
+        <div class="upgrade-note">✨ Your child's learning data is always collected — upgrade anytime to unlock everything from day one.</div>
+      </div>
+
+      <!-- FAMILY FEATURED -->
+      <div class="pricing-card featured">
+        <div class="plan-name">Family</div>
+        <div class="plan-price"><sup>$</sup>9.99</div>
+        <div class="plan-period">per month · or $6.99/mo billed annually</div>
+        <div class="plan-tagline" style="border-bottom-color:rgba(255,255,255,0.1)">Full visibility into your child's learning. Every score, every subject, every minute — yours to see.</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Everything in Explorer</li>
+          <li><span class="check">✓</span>Full parent dashboard</li>
+          <li><span class="check">✓</span>Weekly progress report (email)</li>
+          <li><span class="check">✓</span>Bedtime conversation starters</li>
+          <li><span class="check">✓</span>Quiz history and trends</li>
+          <li><span class="check">✓</span>Subjects breakdown charts</li>
+          <li><span class="check">✓</span>Downloadable PDF reports</li>
+        </ul>
+        <button class="plan-btn">Start free trial</button>
+      </div>
+
+      <!-- FAMILY ANNUAL -->
+      <div class="pricing-card">
+        <div class="plan-name">Family Annual</div>
+        <div class="plan-price"><sup>$</sup>6.99</div>
+        <div class="plan-period">per month · billed $83.88/year · save 30%</div>
+        <div class="plan-tagline">Best value for committed families. Priority content and early access to every new feature we ship.</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Everything in Family</li>
+          <li><span class="check">✓</span>Save 30% vs monthly</li>
+          <li><span class="check">✓</span>New videos 48hrs early</li>
+          <li><span class="check">✓</span>Early access to new features</li>
+          <li><span class="check">✓</span>Downloadable PDF reports</li>
+          <li><span class="check">✓</span>Priority email support</li>
+          <li><span class="check">✓</span>Founding member status</li>
+        </ul>
+        <button class="plan-btn">Start free trial</button>
+      </div>
+
+    </div>
+    <p class="pricing-footer">🎁 7-day free trial on all plans · No credit card required · Cancel anytime<br><br><strong>Unlimited children on every plan.</strong> One subscription covers your whole family.</p>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="section-label" style="text-align:center">Join the waitlist</div>
+    <h2 class="section-title" style="text-align:center">Be first when <em>Lumen Kids</em> launches.</h2>
+    <p class="section-sub" style="text-align:center">Get early access, founding member pricing, and updates as we build. No spam — just the good stuff.</p>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="your@email.com">
+      <a href="#" class="btn-primary">✦ Get Early Access</a>
+    </div>
+    <p class="waitlist-note">🔒 No spam, ever. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Lumen<span class="dot">.</span>Kids</div>
+      <div class="footer-tagline">Screen time that teaches. Built for curious kids and busy parents.</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="#how">How it works</a>
+        <a href="#vet">Our standard</a>
+        <a href="#videos">Video library</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">COPPA Notice</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lumen Kids. All rights reserved.</div>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">COPPA</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
