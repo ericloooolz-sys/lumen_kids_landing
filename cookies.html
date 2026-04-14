@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen Kids — Cookie Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sun: #F5C842;
+            --ink: #1A1200;
+            --cream: #FFFDF4;
+            --sage: #3D7A5F;
+            --clay: #B85C47;
+            --sand: #E8D5C4;
+            --error: #D64545;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--ink);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--cream);
+            border-bottom: 1px solid rgba(26, 18, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a.logo {
+            font-family: "Fraunces", serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a.logo:hover {
+            color: var(--sage);
+        }
+
+        /* Main content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-family: "Fraunces", serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: "Fraunces", serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--sand);
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 1.5rem;
+        }
+
+        h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+        p.meta {
+            font-size: 0.95rem;
+            color: var(--sage);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        a {
+            color: var(--sage);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--clay);
+        }
+
+        p.last-updated {
+            font-size: 0.9rem;
+            color: var(--sage);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: var(--sage);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--clay);
+        }
+
+        .back-link::before {
+            content: "← ";
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ink);
+            color: var(--cream);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        footer a {
+            color: var(--sun);
+        }
+
+        footer a:hover {
+            color: var(--sand);
+        }
+
+        /* Footer link group */
+        footer .footer-links {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links a {
+            margin: 0 0.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
+            nav a.logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            nav .container {
+                padding: 0.75rem 1rem;
+            }
+
+            nav a.logo {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Lumen Kids</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Lumen Kids — Cookie Policy</h1>
+        <p class="meta">Effective Date: April 13, 2026 · Version 1.0 · Developed and operated by Lumenix Labs</p>
+
+        <h2>1. What Are Cookies?</h2>
+        <p>Cookies are small text files that are stored on your device when you visit a website. They help websites remember information about you and your preferences. Cookies are widely used to make browsing more convenient and to improve user experience.</p>
+        <p>At Lumen Kids, we are transparent about our use of cookies. This policy explains what cookies we use, why we use them, and how to manage them.</p>
+
+        <h2>2. Cookies on the Lumen Kids Mobile App</h2>
+        <p><strong>The Lumen Kids mobile application (iOS and Android) does not use cookies or cross-site tracking technologies.</strong></p>
+        <p>When you use the Lumen Kids app on your device, your session is managed through secure authentication tokens, not cookies. We do not use advertising cookies, analytics cookies, or any form of persistent tracking that follows you across websites or apps.</p>
+        <p>Children and parents who use the Lumen Kids mobile app have complete protection from cookie-based tracking while learning and exploring educational content.</p>
+
+        <h2>3. Cookies on Our Website</h2>
+        <p>The Lumen Kids website and landing pages may use a limited number of essential cookies only. These cookies are necessary for the website to function properly and to provide you with the services you request.</p>
+        <p><strong>We do not use advertising cookies, analytics cookies, or behavioural tracking cookies on our website.</strong> If we ever introduce any new tracking technologies, we will notify you and provide an opportunity to opt out.</p>
+
+        <h2>4. Types of Cookies We May Use</h2>
+        <h3>Essential Cookies</h3>
+        <p>Essential cookies are necessary for the website to function and cannot be disabled. These cookies help us:</p>
+        <ul>
+            <li>Maintain your session when you log into your parent account</li>
+            <li>Remember your language and regional preferences</li>
+            <li>Protect the security of your account and prevent fraud</li>
+            <li>Load the website correctly in your browser</li>
+        </ul>
+        <p>These cookies expire when you close your browser or when your session ends. Without essential cookies, you may not be able to use certain features of the website.</p>
+
+        <h2>5. Third-Party Cookies</h2>
+        <p>Lumen Kids does not allow third-party advertising cookies or tracking cookies on our website or app.</p>
+        <p>However, please note that if we use third-party services such as Google Fonts (for typography) or content delivery networks (CDNs) to serve assets, those third parties may set minimal cookies as part of their standard service. These cookies are for functionality only — not for advertising or behavioural tracking — and are beyond our direct control. You can review the privacy policies of these services for more information:</p>
+        <ul>
+            <li>Google Fonts: <a href="https://fonts.google.com/">fonts.google.com</a></li>
+        </ul>
+
+        <h2>6. How to Control Cookies</h2>
+        <p>Most web browsers allow you to control cookies through your browser settings. You can choose to:</p>
+        <ul>
+            <li>Accept all cookies</li>
+            <li>Reject all cookies</li>
+            <li>Delete existing cookies</li>
+            <li>Be notified when a new cookie is set</li>
+        </ul>
+        <p>Please note that disabling essential cookies may affect your ability to use certain features of the Lumen Kids website. You can manage cookie preferences in your browser settings:</p>
+        <ul>
+            <li><strong>Chrome:</strong> Settings → Privacy and Security → Cookies and other site data</li>
+            <li><strong>Firefox:</strong> Preferences → Privacy &amp; Security → Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+            <li><strong>Edge:</strong> Settings → Privacy, search, and services → Cookies and other site data</li>
+        </ul>
+
+        <h2>7. Children and Cookies</h2>
+        <p>The Lumen Kids mobile application, which is used directly by children, does not use any cookies or tracking technologies. Child profiles are managed entirely through parent accounts, and children do not interact with cookie-based systems.</p>
+        <p>If you access the Lumen Kids website as a parent, any essential cookies set are limited to functionality only and do not track your child's behaviour or create behavioural profiles.</p>
+
+        <h2>8. Changes to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy from time to time as our practices evolve. When we make material changes, we will update the Effective Date and notify users via email if you are a registered user.</p>
+        <p>Your continued use of the Lumen Kids website or app after changes take effect constitutes your acceptance of the updated policy.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions about our use of cookies or this Cookie Policy, please contact us:</p>
+        <p><strong>Lumenix Labs</strong><br>Email: privacy@lumenixlabs.app</p>
+        <p>We will respond to all inquiries within 30 days.</p>
+        <p class="last-updated">This Cookie Policy was last updated on April 13, 2026. © Lumenix Labs. All rights reserved.</p>
+
+        <a href="index.html" class="back-link">Back to home</a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lumenix Labs. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="coppa.html">COPPA Compliance</a> |
+            <a href="cookies.html">Cookie Policy</a>
+        </div>
+    </footer>
+</body>
+</html>

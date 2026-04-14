@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen Kids — COPPA Compliance Notice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sun: #F5C842;
+            --sun-deep: #E8A800;
+            --ink: #1A1200;
+            --ink-soft: #3D3100;
+            --cream: #FFFDF4;
+            --sage: #3D7A5F;
+            --sage-light: #EBF5EF;
+            --mist: #F7F4EE;
+            --clay: #B85C47;
+            --sand: #E8D5C4;
+            --error: #D64545;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--ink);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--cream);
+            border-bottom: 1px solid rgba(26, 18, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a.logo {
+            font-family: "Fraunces", serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a.logo:hover {
+            color: var(--sage);
+        }
+
+        /* Main content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-family: "Fraunces", serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: "Fraunces", serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--sand);
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 1.5rem;
+        }
+
+        h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+        p.meta {
+            font-size: 0.95rem;
+            color: var(--sage);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        a {
+            color: var(--sage);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--clay);
+        }
+
+        p.last-updated {
+            font-size: 0.9rem;
+            color: var(--sage);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: var(--sage);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--clay);
+        }
+
+        .back-link::before {
+            content: "← ";
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ink);
+            color: var(--cream);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        footer a {
+            color: var(--sun);
+        }
+
+        footer a:hover {
+            color: var(--sand);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
+            nav a.logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            nav .container {
+                padding: 0.75rem 1rem;
+            }
+
+            nav a.logo {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Lumen Kids</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Lumen Kids — COPPA Compliance Notice</h1>
+        <p class="meta">Effective Date: April 13, 2026 · Version 1.0 · Operated by Lumenix Labs</p>
+
+        <h2>1. Our Commitment to Children's Privacy</h2>
+        <p>Lumen Kids is a curated educational video application designed for children aged 0-12, operated by Lumenix Labs. We are deeply committed to complying with the Children's Online Privacy Protection Act (COPPA) and other children's privacy laws around the world.</p>
+        <p>This COPPA Compliance Notice explains how Lumen Kids protects children's privacy and what parents and guardians can expect when their children use our Service. We have designed Lumen Kids from the ground up to be a safe, walled garden where children can learn without exposure to personal data risks or inappropriate content.</p>
+        <p>By creating an account in Lumen Kids, you confirm that you are the parent or legal guardian of the child using the Service and that you understand and agree to this Notice.</p>
+
+        <h2>2. What is COPPA?</h2>
+        <p>The Children's Online Privacy Protection Act (COPPA) is a United States federal law that protects the privacy of children under 13 years of age online. COPPA requires that:</p>
+        <ul>
+            <li>Websites and apps cannot knowingly collect personal information from children under 13 without verifiable parental consent</li>
+            <li>Operators must be transparent about what information they collect, how they use it, and who can access it</li>
+            <li>Operators must implement reasonable security measures to protect children's data</li>
+            <li>Parents must be able to review, correct, and delete their child's information</li>
+            <li>Operators cannot condition a child's participation on the disclosure of unnecessary personal information</li>
+            <li>Operators cannot use personal information to create marketing or behavioral profiles of children</li>
+        </ul>
+        <p>Lumen Kids fully complies with these requirements, and we apply the same strict privacy principles to all users globally, regardless of their location.</p>
+
+        <h2>3. Information We Collect from Children</h2>
+        <p>Lumen Kids collects the absolute minimum personal information necessary to operate the Service and protect children. Specifically, for each child profile, we collect only:</p>
+        <ul>
+            <li><strong>Nickname:</strong> A display name chosen by the parent (does not need to be the child's real name)</li>
+            <li><strong>Birth month and year:</strong> Used solely to ensure we deliver age-appropriate content and to comply with children's privacy laws</li>
+        </ul>
+        <p>We explicitly do <strong>NOT</strong> collect the following from children:</p>
+        <ul>
+            <li>The child's real or full name</li>
+            <li>The exact date of birth (day is not collected)</li>
+            <li>Home address or precise location data</li>
+            <li>Phone number or email address</li>
+            <li>Photograph, video, or any biometric data (including facial recognition)</li>
+            <li>Social media usernames or profiles</li>
+            <li>Browsing history beyond our curated video library</li>
+            <li>Voice recordings (the App does not record microphone input; voice recognition is used only to match spoken answers against known word lists)</li>
+            <li>Device identifiers that could be linked to a specific child</li>
+            <li>Information about parents, siblings, or other family members</li>
+            <li>School name, class, or educational information</li>
+        </ul>
+
+        <h2>4. How Children Use Lumen Kids</h2>
+        <p>Lumen Kids is designed as a safe, controlled environment where children interact only with pre-approved educational content. Specifically:</p>
+        <h3>4.1 Video Watching</h3>
+        <p>Children watch educational videos that have been vetted and approved by our AI system and quality team before being made available in the app. All content comes from YouTube but is delivered through our own curated library. Children do not have access to the broader YouTube platform or the ability to search, browse, or access content outside our approved collection.</p>
+        <h3>4.2 Interactive Quizzes</h3>
+        <p>After watching a video, children may be presented with interactive quizzes designed to reinforce learning. Quizzes are tailored to the content they just viewed and age-appropriate. Quiz responses are stored only to track the child's learning progress and are never used for marketing or profiling.</p>
+        <h3>4.3 Voice Quizzes (Language Learning)</h3>
+        <p>For language and vocabulary learning videos, children aged 3-8 may participate in voice-based quizzes. Children speak their answers aloud using the app's microphone feature. The app uses speech recognition to match their spoken word against known correct answers. Voice recognition is performed locally on the device or on our secure backend servers; voice recordings are not stored or analyzed for any purpose other than immediate word matching. This feature requires parental permission to activate and can be disabled in the parental control settings.</p>
+        <h3>4.4 No Internet Access</h3>
+        <p>Children cannot browse the internet, visit external websites, click on external links, or interact with social media or online communities. The app is a completely closed, walled-garden environment.</p>
+        <h3>4.5 No Communication Features</h3>
+        <p>Children cannot send messages, post comments, or communicate with other users, peers, or strangers. The app does not include any social or communication features.</p>
+
+        <h2>5. Parental Consent and Account Ownership</h2>
+        <p>In Lumen Kids, <strong>only parents or legal guardians can create accounts.</strong> Children do not create their own accounts and cannot register independently. This is our primary method of obtaining verifiable parental consent.</p>
+        <h3>5.1 How Parental Consent Works</h3>
+        <ul>
+            <li>A parent enters their email address and creates a password to establish their account</li>
+            <li>The parent verifies their email by clicking a confirmation link we send to that email</li>
+            <li>Only after email verification is complete can the parent add child profiles to their account</li>
+            <li>The parent must provide the child's nickname and birth month/year for each child profile they create</li>
+            <li>By completing these steps, the parent provides verifiable consent under COPPA for their child to use Lumen Kids</li>
+        </ul>
+        <h3>5.2 Proof of Parental Authority</h3>
+        <p>Account ownership serves as reliable evidence that the person registering is the parent or guardian. We require email verification to confirm ownership and control of the account email address.</p>
+
+        <h2>6. Parental Rights and Controls</h2>
+        <p>Parents have comprehensive rights to manage their child's data and experience in Lumen Kids. Parents may exercise the following rights at any time by contacting us at privacy@lumenixlabs.app:</p>
+        <h3>6.1 Right to Review</h3>
+        <p>Parents may request a detailed report of all personal information we hold about their child, including the child's profile data, watch history, quiz scores, and learning activity. We will provide this information within 30 days of request.</p>
+        <h3>6.2 Right to Correct</h3>
+        <p>Parents may correct or update any inaccurate information about their child at any time. For example, you can update your child's nickname or birth month/year through the app's settings, or contact us to make other corrections.</p>
+        <h3>6.3 Right to Delete</h3>
+        <p>Parents may request permanent deletion of their child's profile and all associated data at any time. Once deleted, all information is removed from our systems within 30 days. This right applies regardless of any subscription status.</p>
+        <h3>6.4 Right to Refuse Further Collection</h3>
+        <p>Parents may refuse to allow further collection of information from their child by disabling features (such as voice quizzes) in the parental settings or by deleting the child's profile entirely. Parents can also request that we stop processing data about their child for specific purposes.</p>
+        <h3>6.5 Right to Data Export</h3>
+        <p>Parents may request a copy of their child's personal data in a standard, machine-readable format (such as CSV or JSON). We will provide this within 30 days of request.</p>
+        <h3>6.6 Parental Control Features</h3>
+        <p>The Lumen Kids app includes built-in parental controls that allow parents to:</p>
+        <ul>
+            <li>Set daily screen time limits (default: 60 minutes per day)</li>
+            <li>Enable or disable voice quiz features</li>
+            <li>Adjust content filtering by age group and subject</li>
+            <li>Review detailed activity reports and learning summaries</li>
+            <li>View quiz scores and learning progress over time</li>
+        </ul>
+
+        <h2>7. How We Protect Children's Data</h2>
+        <p>We implement comprehensive security and privacy practices specifically designed to protect children's information:</p>
+        <h3>7.1 Encryption</h3>
+        <p>All data transmitted between your device and our servers is encrypted using TLS/HTTPS. Passwords are stored using strong one-way hashing algorithms and are never stored in plain text.</p>
+        <h3>7.2 Access Controls</h3>
+        <p>Access to child data is restricted to authorized Lumenix Labs staff only, and only on a need-to-know basis. We do not share child data with any other departments or contractors.</p>
+        <h3>7.3 No Advertising</h3>
+        <p>Lumen Kids does not display any advertisements, promotional content, or marketing messages to children. The app is completely ad-free. Parents may see subscription information in the parental section, but children never see ads.</p>
+        <h3>7.4 No Behavioral Profiling</h3>
+        <p>We do not create behavioral, interest, or personality profiles of children. We do not use child data to predict preferences, rank content likelihood, or build predictive models. All analytics are aggregated and anonymized.</p>
+        <h3>7.5 No Third-Party Tracking</h3>
+        <p>When children are using the app, third-party tracking tools, analytics, and advertising services are completely disabled. We do not permit third parties to track children's behavior, collect their data, or build profiles about them.</p>
+        <h3>7.6 No Links to Third-Party Services</h3>
+        <p>The child-facing portion of Lumen Kids does not include clickable links to external websites, advertisers, or third-party services. All content is self-contained within the app.</p>
+
+        <h2>8. AI and Children — Why Children Never Interact with AI</h2>
+        <p>Lumen Kids uses AI-powered technology to vet and curate educational video content. However, it is critical to understand that children never interact with AI systems.</p>
+        <h3>8.1 How AI is Used</h3>
+        <p>Our AI systems (powered by Google Gemini) are used exclusively for backend content vetting. Before any video is made available to children, our AI:</p>
+        <ul>
+            <li>Analyzes the video's title, description, and transcript</li>
+            <li>Extracts key frames from the video to assess visual appropriateness</li>
+            <li>Applies a detailed rubric to evaluate educational quality, presentation, pacing, and safety</li>
+            <li>Generates a summary for parents and creates age-appropriate quiz questions</li>
+            <li>Assigns a quality score and determines whether the video should be shown to children</li>
+        </ul>
+        <h3>8.2 Children Do Not Interact with AI</h3>
+        <p>When your child uses Lumen Kids, they are simply watching and learning from videos in a curated library. They are not:</p>
+        <ul>
+            <li>Interacting with any AI chatbot or virtual assistant</li>
+            <li>Having their learning analyzed or scored by AI in real-time</li>
+            <li>Being tracked or profiled by machine learning systems</li>
+            <li>Submitting data to any AI service</li>
+            <li>Subject to automated decision-making that affects their experience</li>
+        </ul>
+        <h3>8.3 No Child Data Sent to AI Systems</h3>
+        <p>The AI vetting pipeline uses only publicly available video metadata. No personal data of children, parents, or users is ever sent to or processed by AI systems. The vetting happens entirely on our backend before a video is approved.</p>
+
+        <h2>9. Third-Party Services and Data Sharing</h2>
+        <p>Lumen Kids uses select third-party services to operate the app. However, we take care to limit data sharing and ensure all partners maintain strict privacy protections for children:</p>
+        <h3>9.1 YouTube Embedded Player</h3>
+        <p>Approved educational videos are delivered through YouTube's embedded player. YouTube's own privacy policies apply to the delivery of their video content. However, all content displayed within Lumen Kids has been pre-approved by our team, and child profiles do not have access to the broader YouTube platform. Children cannot browse YouTube, see recommendations, or access videos outside our curated collection.</p>
+        <h3>9.2 Supabase (Database and Backend Infrastructure)</h3>
+        <p>We use Supabase to store and manage user data, including child profile information and learning activity. Supabase is a secure, GDPR-compliant backend-as-a-service provider. Child data is encrypted and stored on servers with industry-standard security measures. Supabase does not use child data for any purpose other than storing and retrieving it for our Service.</p>
+        <h3>9.3 RevenueCat (Subscription Management)</h3>
+        <p>We use RevenueCat to manage parent subscriptions and in-app purchases. RevenueCat receives only parent account information (email, subscription status, billing details) — it does not receive any personal information about children. Child data is never shared with RevenueCat.</p>
+        <h3>9.4 Apple App Store and Google Play Store</h3>
+        <p>When parents purchase subscriptions through Apple or Google's in-app purchase systems, those companies handle payment processing. We do not share child data with Apple or Google. Both companies maintain separate privacy policies, and parents are encouraged to review them.</p>
+        <h3>9.5 Data Sharing Restrictions</h3>
+        <p>All third-party service providers are contractually required to:</p>
+        <ul>
+            <li>Process data only for the specific purposes we authorize</li>
+            <li>Maintain appropriate security measures</li>
+            <li>Comply with applicable children's privacy laws</li>
+            <li>Not use data for any secondary purposes, including profiling, marketing, or analytics</li>
+            <li>Delete or return data when our relationship ends</li>
+        </ul>
+        <p>We do not sell, rent, trade, or otherwise share child data with third parties for any commercial or marketing purpose.</p>
+
+        <h2>10. How to Contact Us and Exercise Your Rights</h2>
+        <p>Parents and guardians have the right to contact us about any privacy matter related to their child's account. To exercise any of the rights described in this Notice, please contact us:</p>
+        <p><strong>Lumenix Labs</strong><br>
+        Email: <strong>privacy@lumenixlabs.app</strong></p>
+        <h3>10.1 What to Include in Your Request</h3>
+        <p>When contacting us, please include:</p>
+        <ul>
+            <li>Your full name and the email address associated with your Lumen Kids account</li>
+            <li>Your child's nickname and birth month/year (as registered in the app)</li>
+            <li>A clear description of what you are requesting (e.g., "I want to review my child's data" or "I want to delete my child's profile")</li>
+            <li>Any additional details that will help us process your request quickly</li>
+        </ul>
+        <h3>10.2 Our Response Timeline</h3>
+        <p>We are committed to responding to all parental requests within <strong>30 days</strong> of receipt. We will verify your identity as the parent or guardian before processing your request. If we need additional information, we will contact you to clarify your request.</p>
+        <h3>10.3 Identity Verification</h3>
+        <p>Before we can disclose, correct, or delete child data, we will verify that you are the parent or legal guardian of the child. This may involve asking you to confirm your account email, providing a copy of legal documentation, or other reasonable verification methods.</p>
+
+        <h2>11. Changes to This COPPA Compliance Notice</h2>
+        <p>We may update this Notice to reflect changes in our practices, technology, or legal requirements. When we make material changes, we will:</p>
+        <ul>
+            <li>Update the Effective Date at the top of this document</li>
+            <li>Notify all registered parent accounts via email at least <strong>14 days</strong> before changes take effect</li>
+            <li>Display a prominent notice within the Lumen Kids app</li>
+            <li>Provide clear information about what has changed and why</li>
+        </ul>
+        <p>Your continued use of Lumen Kids after the effective date of any changes constitutes your acceptance of the updated Notice. If you do not agree with the changes, you may delete your account before the changes take effect.</p>
+
+        <h2>12. Additional Information for Parents and Guardians</h2>
+        <h3>12.1 What Happens if My Subscription Ends?</h3>
+        <p>If your Lumen Kids subscription expires or is cancelled, your child will no longer be able to access videos in the app. However, your account and child profile data will remain in our systems. You can reactivate your subscription at any time to restore access. If you wish to permanently delete your account and all child data, please contact us at privacy@lumenixlabs.app.</p>
+        <h3>12.2 Can I Download My Child's Data?</h3>
+        <p>Yes. You can request a copy of all your child's personal data, including profile information, watch history, quiz scores, and learning activity. We will provide this in a standard format (CSV or JSON) within 30 days of your request.</p>
+        <h3>12.3 What Happens if Lumenix Labs is Acquired or Sold?</h3>
+        <p>In the unlikely event that Lumenix Labs is acquired, merged with another company, or assets are sold, we will notify all parent accounts via email at least 14 days before any transfer of data. You will have the right to delete your account before any such transfer. We will not transfer your child's data to any third party without your explicit consent, and we will require any successor to maintain the same level of privacy protection for children.</p>
+        <h3>12.4 Is Lumen Kids Safe for All Ages 0-12?</h3>
+        <p>Lumen Kids is designed for children aged 0-12, but content is curated by age group. You control which content your child sees through the app's parental settings. We recommend supervising your child's use of the app, especially for very young children (ages 0-3).</p>
+        <h3>12.5 How Can I Report Privacy Concerns?</h3>
+        <p>If you believe your child's privacy has been violated or if you have concerns about how we are handling your child's data, please contact us immediately at privacy@lumenixlabs.app. We take all privacy concerns seriously and will investigate promptly. In the United States, you may also file a complaint with the Federal Trade Commission (FTC) at reportfraud.ftc.gov.</p>
+
+        <p class="last-updated">This COPPA Compliance Notice was last updated on April 13, 2026. © Lumenix Labs. All rights reserved.</p>
+
+        <a href="index.html" class="back-link">Back to home</a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lumenix Labs. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="coppa.html">COPPA Notice</a> |
+            <a href="cookies.html">Cookies</a>
+        </p>
+    </footer>
+</body>
+</html>
