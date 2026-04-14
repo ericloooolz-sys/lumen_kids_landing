@@ -184,11 +184,7 @@
   .pricing { background: var(--cream); }
   .pricing-header { text-align: center; margin-bottom: 56px; }
   .pricing-header .section-title { margin: 0 auto; }
-  .pricing-toggle { display: inline-flex; background: white; border-radius: 100px; padding: 4px; margin-top: 32px; gap: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-  .toggle-btn { padding: 10px 24px; border-radius: 100px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; background: transparent; color: var(--ink-soft); font-family: 'DM Sans', sans-serif; }
-  .toggle-btn.active { background: var(--ink); color: var(--sun); }
-  .save-tag { background: var(--sage); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
-  .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .pricing-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 780px; margin: 0 auto; }
   .pricing-card { background: white; border-radius: 28px; padding: 36px; border: 2px solid transparent; transition: transform 0.3s; position: relative; overflow: hidden; }
   .pricing-card:hover { transform: translateY(-4px); }
   .pricing-card.featured { background: var(--ink); border-color: var(--sun); }
@@ -219,18 +215,13 @@
   .pricing-card.featured .plan-btn:hover { background: var(--sun-deep); border-color: var(--sun-deep); }
   .pricing-card.entry .plan-btn { border-color: rgba(0,0,0,0.15); color: #888; }
   .pricing-card.entry .plan-btn:hover { background: var(--mist); color: var(--ink); border-color: var(--ink); }
-  .upgrade-note { background: var(--sage-light); border-radius: 12px; padding: 12px 16px; margin-top: 16px; font-size: 13px; color: var(--sage); line-height: 1.5; text-align: center; }
   .pricing-footer { text-align: center; margin-top: 40px; font-size: 14px; color: #888; }
   .pricing-footer strong { color: var(--sage); }
 
-  /* WAITLIST */
+  /* DOWNLOAD CTA */
   .waitlist { background: linear-gradient(135deg, #FFF8DC 0%, #EBF5EF 100%); text-align: center; padding: 100px 24px; }
   .waitlist .section-title { margin: 0 auto 16px; }
   .waitlist .section-sub { margin: 0 auto 48px; text-align: center; }
-  .email-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-  .email-input { flex: 1; min-width: 260px; padding: 16px 24px; border-radius: 100px; border: 2px solid rgba(26,18,0,0.12); font-size: 16px; font-family: 'DM Sans', sans-serif; outline: none; background: white; transition: border-color 0.2s; }
-  .email-input:focus { border-color: var(--sage); }
-  .email-input::placeholder { color: #aaa; }
   .waitlist-note { margin-top: 20px; font-size: 13px; color: #888; }
 
   /* FOOTER */
@@ -254,7 +245,7 @@
 
   @media (max-width: 900px) {
     .pricing-cards { grid-template-columns: 1fr; max-width: 420px; }
-    .dashboard-inner { grid-template-columns: 1fr; }
+.dashboard-inner { grid-template-columns: 1fr; }
     .dashboard-mockup { transform: none; }
     .vet-compare { grid-template-columns: 1fr; }
   }
@@ -278,7 +269,7 @@
     <a href="#videos">Videos</a>
     <a href="#dashboard">For Parents</a>
     <a href="#pricing">Pricing</a>
-    <a href="#waitlist" class="nav-cta">Get Early Access</a>
+    <a href="download.html" class="nav-cta">Download the App</a>
   </div>
 </nav>
 
@@ -289,7 +280,7 @@
   <h1>Screen time that<br><span class="highlight">actually teaches</span><br><em>your child.</em></h1>
   <p class="hero-sub">Lumen Kids uses AI to hand-pick the best educational YouTube videos — so every minute your child watches is a minute well spent.</p>
   <div class="hero-actions">
-    <a href="#waitlist" class="btn-primary">✦ Get Early Access</a>
+    <a href="download.html" class="btn-primary">✦ Download the App</a>
     <a href="#how" class="btn-secondary">See how it works →</a>
   </div>
   <div class="hero-trust">
@@ -616,34 +607,46 @@
       <div class="dashboard-mockup">
         <div class="dash-header">
           <div class="dash-greeting">Good evening, Eric 👋</div>
-          <div class="dash-date">Wed, 25 Mar</div>
+          <div class="dash-date">Mon, 14 Apr</div>
         </div>
         <div class="dash-cards">
-          <div class="dash-stat"><div class="dash-stat-value">7</div><div class="dash-stat-label">Videos today</div></div>
-          <div class="dash-stat"><div class="dash-stat-value">82%</div><div class="dash-stat-label">Quiz avg</div></div>
-          <div class="dash-stat"><div class="dash-stat-value">1h 20m</div><div class="dash-stat-label">Screen time</div></div>
+          <div class="dash-stat"><div class="dash-stat-value">25m</div><div class="dash-stat-label">Minutes today</div></div>
+          <div class="dash-stat"><div class="dash-stat-value">48m</div><div class="dash-stat-label">This week</div></div>
+          <div class="dash-stat"><div class="dash-stat-value">3</div><div class="dash-stat-label">Videos watched</div></div>
+        </div>
+        <!-- Subject breakdown mini-chart -->
+        <div style="background:white;border-radius:14px;padding:14px;margin-bottom:12px;">
+          <div style="font-size:12px;font-weight:600;color:#1A1200;margin-bottom:10px;">Subjects this week</div>
+          <div style="display:flex;gap:6px;align-items:flex-end;height:40px;">
+            <div style="flex:1;background:#FFF3B0;border-radius:4px;height:100%;display:flex;align-items:flex-end;justify-content:center;"><span style="font-size:9px;font-weight:700;color:#7A5F00;padding:2px;">Language</span></div>
+            <div style="flex:1;background:#EBF5EF;border-radius:4px;height:65%;display:flex;align-items:flex-end;justify-content:center;"><span style="font-size:9px;font-weight:700;color:#2D6B4F;padding:2px;">Nature</span></div>
+            <div style="flex:1;background:#D6EDFF;border-radius:4px;height:40%;display:flex;align-items:flex-end;justify-content:center;"><span style="font-size:9px;font-weight:700;color:#1A5A8A;padding:2px;">Music</span></div>
+          </div>
         </div>
         <div class="dash-children">
           <div class="dash-child">
-            <div class="dash-avatar emma">👧</div>
+            <div class="dash-avatar emma" style="background:#FFF3B0;">🦁</div>
             <div class="dash-child-info">
-              <div class="dash-child-name">Emma, age 5</div>
-              <div class="dash-child-stat">45min · 4 videos · Math, Language</div>
-              <div class="dash-progress"><div class="dash-progress-fill" style="width:75%"></div></div>
+              <div class="dash-child-name">Ariel, age 1</div>
+              <div class="dash-child-stat">25min · 3 videos · Language, Nature</div>
+              <div class="dash-progress"><div class="dash-progress-fill" style="width:42%"></div></div>
+              <div style="font-size:10px;color:#888;margin-top:2px;">Limit: 60 min/day</div>
             </div>
           </div>
-          <div class="dash-child">
-            <div class="dash-avatar jack">👦</div>
-            <div class="dash-child-info">
-              <div class="dash-child-name">Jack, age 8</div>
-              <div class="dash-child-stat">35min · 3 videos · Science, Space</div>
-              <div class="dash-progress"><div class="dash-progress-fill" style="width:58%"></div></div>
-            </div>
+        </div>
+        <!-- Words learned (voice quiz data) -->
+        <div style="background:white;border-radius:14px;padding:14px;margin-top:12px;">
+          <div style="font-size:12px;font-weight:600;color:#1A1200;margin-bottom:8px;">🎤 Words Ariel said this week</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="background:#EBF5EF;color:#2D6B4F;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">cat</span>
+            <span style="background:#EBF5EF;color:#2D6B4F;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">dog ×2</span>
+            <span style="background:#EBF5EF;color:#2D6B4F;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">apple</span>
+            <span style="background:#EBF5EF;color:#2D6B4F;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;">sun</span>
           </div>
         </div>
         <div class="dash-convo">
           <div class="dash-convo-label">💬 Tonight's conversation starter</div>
-          <div class="dash-convo-q">"Emma, how many planets are in our solar system? Jack told me he knows!"</div>
+          <div class="dash-convo-q">"What was your favourite thing you learned today? Can you teach me something you watched?"</div>
         </div>
       </div>
     </div>
@@ -655,82 +658,63 @@
   <div class="container">
     <div class="pricing-header">
       <div class="section-label">Simple pricing</div>
-      <h2 class="section-title">Start free. <em>Grow when ready.</em></h2>
-      <p class="section-sub" style="margin: 16px auto 0; text-align: center;">Every plan includes AI-vetted videos, quizzes and screen time controls. Upgrade anytime — your child's data is always waiting for you.</p>
+      <h2 class="section-title">Two plans. <em>One clear choice.</em></h2>
+      <p class="section-sub" style="margin: 16px auto 0; text-align: center;">Every plan includes AI-vetted videos, quizzes, and screen time controls. Choose Essential for one child, or Family for up to five.</p>
     </div>
     <div class="pricing-cards">
 
-      <!-- EXPLORER -->
+      <!-- ESSENTIAL -->
       <div class="pricing-card entry">
-        <div class="plan-name">Explorer</div>
-        <div class="plan-price"><sup>$</sup>3.99</div>
-        <div class="plan-period">per month · no annual lock-in</div>
-        <div class="plan-tagline">Choose the subjects. We handle the rest. Perfect for parents who want filtered content without the full dashboard.</div>
+        <div class="plan-name">Essential</div>
+        <div class="plan-price"><sup>$</sup>9.99</div>
+        <div class="plan-period">per month · or <strong>$7.99/mo</strong> billed annually — <span style="color:var(--sage);font-weight:700">save 20%</span></div>
+        <div class="plan-tagline">Perfect for one child. AI-vetted learning videos, quizzes and screen time controls — everything you need to get started.</div>
         <ul class="plan-features">
-          <li><span class="check">✓</span>Choose subjects per child</li>
-          <li><span class="check">✓</span>AI-vetted video feed</li>
+          <li><span class="check">✓</span>1 child profile</li>
+          <li><span class="check">✓</span>AI-vetted educational videos</li>
           <li><span class="check">✓</span>Quiz after every video</li>
-          <li><span class="check">✓</span>Screen time limits</li>
-          <li><span class="lock">🔒</span><span class="lock-text">Parent dashboard</span></li>
-          <li><span class="lock">🔒</span><span class="lock-text">Weekly progress report</span></li>
-          <li><span class="lock">🔒</span><span class="lock-text">Bedtime conversation starters</span></li>
+          <li><span class="check">✓</span>Screen time controls &amp; limits</li>
+          <li><span class="check">✓</span>New content added weekly</li>
+          <li><span class="lock">🔒</span><span class="lock-text">Parent progress dashboard</span></li>
+          <li><span class="lock">🔒</span><span class="lock-text">Night story guide</span></li>
         </ul>
-        <button class="plan-btn">Start free trial</button>
-        <div class="upgrade-note">✨ Your child's learning data is always collected — upgrade anytime to unlock everything from day one.</div>
+        <a href="download.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Download &amp; start free trial</a>
       </div>
 
       <!-- FAMILY FEATURED -->
       <div class="pricing-card featured">
         <div class="plan-name">Family</div>
-        <div class="plan-price"><sup>$</sup>9.99</div>
-        <div class="plan-period">per month · or $6.99/mo billed annually</div>
-        <div class="plan-tagline" style="border-bottom-color:rgba(255,255,255,0.1)">Full visibility into your child's learning. Every score, every subject, every minute — yours to see.</div>
+        <div class="plan-price"><sup>$</sup>39.99</div>
+        <div class="plan-period" style="color:rgba(255,255,255,0.5)">per month · or <strong style="color:var(--sun)">$31.99/mo</strong> billed annually — <span style="color:var(--sun);font-weight:700">save 20%</span></div>
+        <div class="plan-tagline" style="border-bottom-color:rgba(255,255,255,0.1)">Everything for the whole family. Up to 5 children, full progress dashboard, and the night story guide.</div>
         <ul class="plan-features">
-          <li><span class="check">✓</span>Everything in Explorer</li>
-          <li><span class="check">✓</span>Full parent dashboard</li>
-          <li><span class="check">✓</span>Weekly progress report (email)</li>
-          <li><span class="check">✓</span>Bedtime conversation starters</li>
-          <li><span class="check">✓</span>Quiz history and trends</li>
-          <li><span class="check">✓</span>Subjects breakdown charts</li>
-          <li><span class="check">✓</span>Downloadable PDF reports</li>
+          <li><span class="check">✓</span>Up to 5 child profiles</li>
+          <li><span class="check">✓</span>AI-vetted educational videos</li>
+          <li><span class="check">✓</span>Quiz after every video</li>
+          <li><span class="check">✓</span>Screen time controls &amp; limits</li>
+          <li><span class="check">✓</span>Full parent progress dashboard</li>
+          <li><span class="check">✓</span>Night story guide</li>
+          <li><span class="check">✓</span>New content added weekly</li>
+          <li><span class="check">✓</span>Priority support</li>
         </ul>
-        <button class="plan-btn">Start free trial</button>
-      </div>
-
-      <!-- FAMILY ANNUAL -->
-      <div class="pricing-card">
-        <div class="plan-name">Family Annual</div>
-        <div class="plan-price"><sup>$</sup>6.99</div>
-        <div class="plan-period">per month · billed $83.88/year · save 30%</div>
-        <div class="plan-tagline">Best value for committed families. Priority content and early access to every new feature we ship.</div>
-        <ul class="plan-features">
-          <li><span class="check">✓</span>Everything in Family</li>
-          <li><span class="check">✓</span>Save 30% vs monthly</li>
-          <li><span class="check">✓</span>New videos 48hrs early</li>
-          <li><span class="check">✓</span>Early access to new features</li>
-          <li><span class="check">✓</span>Downloadable PDF reports</li>
-          <li><span class="check">✓</span>Priority email support</li>
-          <li><span class="check">✓</span>Founding member status</li>
-        </ul>
-        <button class="plan-btn">Start free trial</button>
+        <a href="download.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Download &amp; start free trial</a>
       </div>
 
     </div>
-    <p class="pricing-footer">🎁 7-day free trial on all plans · No credit card required · Cancel anytime<br><br><strong>Unlimited children on every plan.</strong> One subscription covers your whole family.</p>
+    <p class="pricing-footer">🎁 7-day free trial included · Cancel anytime in App Store or Google Play<br><br>🚀 <strong>Launch offer: save 20% on annual plans.</strong> Price locks in for as long as you stay subscribed.</p>
   </div>
 </section>
 
-<!-- EMAIL CAPTURE -->
-<section class="waitlist" id="waitlist">
+<!-- DOWNLOAD CTA -->
+<section class="waitlist" id="download">
   <div class="container">
-    <div class="section-label" style="text-align:center">Join the waitlist</div>
-    <h2 class="section-title" style="text-align:center">Be first when <em>Lumen Kids</em> launches.</h2>
-    <p class="section-sub" style="text-align:center">Get early access, founding member pricing, and updates as we build. No spam — just the good stuff.</p>
-    <div class="email-form">
-      <input type="email" class="email-input" placeholder="your@email.com">
-      <a href="#" class="btn-primary">✦ Get Early Access</a>
+    <div class="section-label" style="text-align:center">Your child deserves better screen time</div>
+    <h2 class="section-title" style="text-align:center">Every minute counts. <em>Make them all learn.</em></h2>
+    <p class="section-sub" style="text-align:center">Join thousands of parents who replaced mindless scrolling with real learning. 7-day free trial — your child's first quiz is minutes away.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;">
+      <a href="download.html" class="btn-primary" style="font-size:18px;padding:18px 44px;">✦ Start My Child's Free Trial</a>
     </div>
-    <p class="waitlist-note">🔒 No spam, ever. Unsubscribe anytime.</p>
+    <p class="waitlist-note">Available on the App Store and Google Play · No credit card required</p>
   </div>
 </section>
 
@@ -738,7 +722,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">Lumen<span class="dot">.</span>Kids</div>
+      <div class="footer-logo">Lumen Kids</div>
       <div class="footer-tagline">Screen time that teaches. Built for curious kids and busy parents.</div>
     </div>
     <div class="footer-links">
@@ -747,26 +731,26 @@
         <a href="#how">How it works</a>
         <a href="#vet">Our standard</a>
         <a href="#videos">Video library</a>
-        <a href="#pricing">Pricing</a>
+        <a href="download.html">Download</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <a href="#">About</a>
+        <a href="#">About Lumenix Labs</a>
         <a href="#">Blog</a>
         <a href="#">Contact</a>
       </div>
       <div class="footer-col">
         <h5>Legal</h5>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">COPPA Notice</a>
-        <a href="#">Cookie Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="coppa.html">COPPA Notice</a>
+        <a href="cookies.html">Cookie Policy</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Lumen Kids. All rights reserved.</div>
-    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">COPPA</a></div>
+    <div class="footer-copy">© 2026 Lumenix Labs. All rights reserved.</div>
+    <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="coppa.html">COPPA</a></div>
   </div>
 </footer>
 

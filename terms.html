@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service – Lumen Kids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sun: #F5C842;
+      --sun-deep: #E8A800;
+      --ink: #1A1200;
+      --ink-soft: #3D3100;
+      --cream: #FFFDF4;
+      --sage: #3D7A5F;
+      --sage-light: #EBF5EF;
+      --mist: #F7F4EE;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background-color: var(--cream);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--cream);
+      border-bottom: 1px solid #f0ead0;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--sun-deep);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .meta {
+      color: var(--ink-soft);
+      font-size: 14px;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e8dcc6;
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 24px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      margin-left: 24px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--sage);
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--sage-light);
+    }
+
+    .highlight {
+      background-color: var(--sage-light);
+      padding: 24px;
+      border-left: 4px solid var(--sage);
+      margin: 24px 0;
+      border-radius: 4px;
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--mist);
+      padding: 40px 20px;
+      margin-top: 80px;
+      border-top: 1px solid #e8dcc6;
+    }
+
+    footer .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-right: 1px solid #d4c8b0;
+      padding-right: 16px;
+    }
+
+    .footer-nav a:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .footer-nav a:hover {
+      color: var(--sage);
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    .back-home:hover {
+      color: var(--sage-light);
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+
+      main {
+        padding: 40px 16px;
+      }
+
+      nav .container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 18px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-nav a {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #d4c8b0;
+      }
+
+      .footer-nav a:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html">Lumen Kids</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <a href="index.html" class="back-home">← Back to home</a>
+
+    <h1>Terms of Service</h1>
+    <div class="meta">
+      <p><strong>Effective Date:</strong> April 13, 2026</p>
+      <p><strong>Version:</strong> 1.0</p>
+    </div>
+
+    <!-- 1. Acceptance of Terms -->
+    <h2>1. Acceptance of Terms</h2>
+    <p>Welcome to Lumen Kids (the "Service"), provided by Lumenix Labs ("we," "us," "our," or "Company"). By accessing, downloading, installing, or using the Lumen Kids application (the "App") on iOS, Android, or any other platform, you agree to be bound by these Terms of Service (the "Terms"). If you do not agree to any part of these Terms, please do not use the Service.</p>
+    <p>These Terms constitute a legally binding agreement between you and Lumenix Labs. If you are using the Service on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.</p>
+
+    <!-- 2. Description of Service -->
+    <h2>2. Description of Service</h2>
+    <p>Lumen Kids is an educational video platform designed for children ages 0 to 12 under parental supervision. The Service includes:</p>
+    <ul>
+      <li><strong>AI-Curated Video Library:</strong> We source educational videos from YouTube and use artificial intelligence (specifically Google Gemini) to vet and score them based on educational quality, age-appropriateness, pacing, visual stimulation, and safety standards.</li>
+      <li><strong>Interactive Quizzes:</strong> After watching videos, children can complete multiple-choice or voice-based quizzes to reinforce learning.</li>
+      <li><strong>Parental Controls:</strong> Parents can set daily screen time limits, manage child profiles, monitor activity history, and receive insights into learning progress through a dedicated dashboard.</li>
+      <li><strong>Parental Dashboard:</strong> Parents have access to a dashboard showing watched videos, quiz scores, and personalized talking points generated by AI to facilitate parent-child conversations about the content.</li>
+      <li><strong>Subscription Plans:</strong> Two subscription tiers (Essential and Family) provide unlimited access to the video library and features.</li>
+    </ul>
+    <p>The Service is intended to complement, not replace, formal education or professional educational guidance. Content recommendations are AI-generated and may not be suitable for every child or family.</p>
+
+    <!-- 3. Account Registration -->
+    <h2>3. Account Registration</h2>
+    <p><strong>Age and Eligibility.</strong> Only individuals aged 18 years or older who are the parent or legal guardian of a child may create an account. You must be a parent or legal guardian to use this Service.</p>
+    <p><strong>Account Creation.</strong> You agree to provide accurate, truthful, and complete information when registering. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
+    <p><strong>Child Profiles.</strong> Parents may create one or more child profiles within their account. Each child profile must include the child's name and age. You are solely responsible for ensuring that all information in child profiles is accurate and that you have proper legal authority over each child.</p>
+    <p><strong>Parental Responsibility.</strong> By creating an account, you acknowledge that you are responsible for supervising your child's use of the Service and for ensuring that the Service is appropriate for your child's age and developmental stage. You agree to monitor your child's activity and regularly review the content they are viewing.</p>
+    <p><strong>Account Suspension.</strong> We reserve the right to suspend or terminate your account if we believe you have misrepresented your age, relationship to a child, or legal authority to act as a guardian.</p>
+
+    <!-- 4. Subscriptions and Payments -->
+    <h2>4. Subscriptions and Payments</h2>
+    <p><strong>Payment Processing.</strong> All subscriptions to Lumen Kids are processed exclusively through Apple App Store (for iOS) or Google Play Store (for Android). We do not handle payment information directly. By subscribing, you agree to the App Store or Google Play payment terms and conditions.</p>
+    <p><strong>Pricing Plans.</strong> Lumen Kids offers two subscription tiers:</p>
+    <ul>
+      <li><strong>Essential Plan:</strong> $9.99 per month or $7.99 per month (billed annually as $95.88/year)</li>
+      <li><strong>Family Plan:</strong> $39.99 per month or $31.99 per month (billed annually as $383.88/year)</li>
+    </ul>
+    <p>Pricing is subject to change. We will notify you of material price increases at least 14 days in advance. Continued use of the Service after price changes constitutes acceptance of the new pricing.</p>
+    <p><strong>Free Trial.</strong> We offer a 7-day free trial for new subscribers. After the trial period ends, your subscription will automatically renew at the selected plan's regular price unless you cancel before the trial ends.</p>
+    <p><strong>Auto-Renewal.</strong> Your subscription will automatically renew on a monthly or annual basis (depending on your selection) unless you cancel. You will be charged on each renewal date.</p>
+    <p><strong>Cancellation.</strong> You may cancel your subscription at any time through the App Store (iOS) or Google Play Store (Android) settings. Cancellation takes effect at the end of your current billing cycle. We do not provide refunds for partial months or years.</p>
+    <p><strong>Refund Policy.</strong> Refunds are governed by the policies of Apple App Store and Google Play Store, not by Lumenix Labs. Please contact the respective store for refund inquiries.</p>
+    <p><strong>Billing Issues.</strong> If payment fails, you may lose access to premium features. We recommend keeping your payment method current to avoid service interruptions.</p>
+
+    <!-- 5. User Conduct -->
+    <h2>5. User Conduct</h2>
+    <p>You agree to use the Service in compliance with all applicable laws and these Terms. Specifically, you agree not to:</p>
+    <ul>
+      <li>Violate any local, state, national, or international law or regulation.</li>
+      <li>Use the Service for any illegal, fraudulent, or harmful purpose.</li>
+      <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App or underlying AI algorithms.</li>
+      <li>Circumvent, disable, or interfere with any security features or parental controls, including attempting to access child profiles without authorization.</li>
+      <li>Scrape, crawl, or automatically extract data from the Service without written permission.</li>
+      <li>Attempt to gain unauthorized access to the Service, user accounts, or servers.</li>
+      <li>Transmit viruses, malware, or any code of a destructive nature.</li>
+      <li>Harass, threaten, defame, or cause harm to any person through the Service.</li>
+      <li>Attempt to sell, transfer, or assign your account to another person without our consent.</li>
+      <li>Use the Service in any way that violates these Terms or our Privacy Policy.</li>
+    </ul>
+    <p>We reserve the right to investigate any suspected violations and take appropriate action, including account suspension or termination.</p>
+
+    <!-- 6. Intellectual Property -->
+    <h2>6. Intellectual Property</h2>
+    <p><strong>Ownership by Lumenix Labs.</strong> Lumenix Labs owns all intellectual property rights in the Lumen Kids App, including but not limited to the software code, user interface design, AI algorithms, vetting rubric, recommendation engine, and all proprietary content created or curated by Lumenix Labs. These materials are protected by copyright, trademark, patent, and trade secret laws.</p>
+    <p><strong>Limited License to You.</strong> We grant you a limited, non-exclusive, non-transferable, revocable license to use the App solely for the purposes stated in these Terms and for your personal, non-commercial household use. This license does not include the right to modify, distribute, or create derivative works.</p>
+    <p><strong>YouTube Content.</strong> Educational videos available through the Service are sourced from YouTube and remain the intellectual property of their respective creators and YouTube. Lumenix Labs does not claim ownership of third-party content. Use of YouTube content is subject to YouTube's Terms of Service.</p>
+    <p><strong>Your Data.</strong> You retain ownership of any information you submit to the Service, including child names, ages, and preferences. By using the Service, you grant Lumenix Labs a worldwide, royalty-free license to use, store, analyze, and process this information to provide and improve the Service. See our Privacy Policy for details.</p>
+    <p><strong>Feedback.</strong> Any feedback, suggestions, or comments you provide about the Service may be used by Lumenix Labs without restriction or compensation to you.</p>
+
+    <!-- 7. Content Disclaimer -->
+    <h2>7. Content Disclaimer</h2>
+    <p><strong>AI-Vetted Content.</strong> While we use advanced artificial intelligence to vet and score videos, our AI system is not infallible. We do not guarantee that all content in the Lumen Kids library is appropriate for every child or that our quality assessments are 100% accurate.</p>
+    <p><strong>Parental Review.</strong> We strongly recommend that parents preview videos and quiz content before allowing their child to view them independently. No automated system is a substitute for parental judgment.</p>
+    <p><strong>Third-Party Content.</strong> Videos are sourced from YouTube and created by third-party educators and content creators. Lumenix Labs does not create, produce, or edit the video content itself. We are not responsible for factual inaccuracies, misleading information, or outdated content in third-party videos.</p>
+    <p><strong>No Guarantee of Availability.</strong> Videos may be removed from YouTube by creators or become unavailable for other reasons beyond our control. We do not guarantee that any particular video will remain available indefinitely.</p>
+    <p><strong>Content Changes.</strong> Lumenix Labs reserves the right to remove, flag, or adjust the quality rating of any video at any time if we determine it no longer meets our standards.</p>
+
+    <!-- 8. Children's Safety and COPPA Compliance -->
+    <h2>8. Children's Safety and COPPA Compliance</h2>
+    <p><strong>COPPA Compliance.</strong> Lumen Kids complies with the Children's Online Privacy Protection Act (COPPA), which protects the privacy of children under 13. We do not knowingly collect personal information from children without prior parental consent.</p>
+    <p><strong>Parental Supervision Required.</strong> The Service is designed for children ages 0–12 and requires active parental or guardian supervision at all times. Parents are responsible for determining whether the Service is appropriate for their child and for monitoring their child's use.</p>
+    <p><strong>No Direct Internet Interaction.</strong> Children do not have direct access to the internet, social media, or external links through the Lumen Kids App. The Service is designed to be a controlled, curated environment for learning.</p>
+    <p><strong>No Chat or Messaging.</strong> The Service does not include chat, messaging, forums, or any feature that allows direct communication between children or between children and adults other than parents.</p>
+    <p><strong>Parental Controls.</strong> Parents have the ability to set screen time limits, restrict content by age group or subject, monitor activity, and review quiz results. We encourage parents to use these tools actively.</p>
+    <p><strong>Safety Standards.</strong> We vet videos for signs of overstimulation, fast pacing, flashing effects, inappropriate content, and predatory behavior. However, no system is perfect. Please report any concerning content to privacy@lumenixlabs.app.</p>
+
+    <!-- 9. Privacy -->
+    <h2>9. Privacy</h2>
+    <p>Your privacy is important to us. Please review our <a href="privacy.html">Privacy Policy</a> for information about how we collect, use, disclose, and protect your personal information and your child's data.</p>
+    <p>By using the Service, you consent to our privacy practices as described in the Privacy Policy. If you do not agree with our privacy practices, please do not use the Service.</p>
+
+    <!-- 10. Limitation of Liability -->
+    <h2>10. Limitation of Liability</h2>
+    <p><strong>No Professional Advice.</strong> Content provided through Lumen Kids is for educational and informational purposes only. It is not intended to be, and should not be relied upon as, professional medical, psychological, legal, or financial advice. Always consult a qualified professional for such matters.</p>
+    <p><strong>Disclaimer of Warranties.</strong> The Service is provided "as is" without warranties of any kind, express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free from viruses or harmful components.</p>
+    <p><strong>Limitation of Damages.</strong> To the maximum extent permitted by law, Lumenix Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages.</p>
+    <p><strong>Liability Cap.</strong> In no event shall Lumenix Labs' total liability to you exceed the amount you have paid to us in the 12 months preceding the claim, or $100, whichever is greater.</p>
+    <p><strong>Educational Content Disclaimer.</strong> We do not guarantee learning outcomes. Educational effectiveness depends on many factors beyond our control, including your child's learning style, engagement, and parental support.</p>
+
+    <!-- 11. Termination -->
+    <h2>11. Termination</h2>
+    <p><strong>Termination by You.</strong> You may terminate your account at any time by deleting the App and canceling your subscription through the App Store or Google Play Store. Upon termination, your account and associated data will be subject to our data retention policies as described in the Privacy Policy.</p>
+    <p><strong>Termination by Us.</strong> We may suspend or terminate your account immediately if we determine that you have violated these Terms, misrepresented your age or parental status, engaged in illegal activity, or posed a safety risk. We will attempt to notify you of termination and the reasons for it, but we are not obligated to do so.</p>
+    <p><strong>Effect of Termination.</strong> Upon termination, your right to use the Service ceases immediately. Sections that are intended to survive termination (such as Intellectual Property, Limitation of Liability, and Governing Law) shall remain in effect.</p>
+    <p><strong>Survival of Data.</strong> We will retain your account data in accordance with our Privacy Policy and applicable law. See the Privacy Policy for information on how to request deletion of your data.</p>
+
+    <!-- 12. Changes to Terms -->
+    <h2>12. Changes to Terms</h2>
+    <p>Lumenix Labs may update these Terms from time to time. Material changes will be communicated to you at least 14 days in advance via in-app notification, email, or other reasonable means. Your continued use of the Service after the effective date of changes constitutes your acceptance of the updated Terms.</p>
+    <p>If you do not accept the updated Terms, you may delete the App and cancel your subscription. We will post the current version of these Terms on our website with an updated effective date.</p>
+
+    <!-- 13. Governing Law and Dispute Resolution -->
+    <h2>13. Governing Law and Dispute Resolution</h2>
+    <p><strong>Governing Law.</strong> These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Lumenix Labs is incorporated, without regard to its conflict of law principles. The specific jurisdiction will be specified upon official incorporation of Lumenix Labs.</p>
+    <p><strong>Jurisdiction and Venue.</strong> You agree that any legal action or proceeding arising under or related to these Terms shall be brought exclusively in the state and federal courts located in the jurisdiction specified above, and you consent to the personal jurisdiction and venue of such courts.</p>
+    <p><strong>Dispute Resolution.</strong> In the event of any dispute, you agree to attempt to resolve the matter informally with Lumenix Labs by contacting privacy@lumenixlabs.app before pursuing legal action. If the dispute cannot be resolved informally, the governing law and jurisdiction provisions above shall apply.</p>
+
+    <!-- 14. Contact Information -->
+    <h2>14. Contact Information</h2>
+    <p>If you have questions about these Terms, the Service, or wish to report a violation, please contact us:</p>
+    <ul>
+      <li><strong>Email:</strong> privacy@lumenixlabs.app</li>
+      <li><strong>Company:</strong> Lumenix Labs</li>
+    </ul>
+    <p>We will respond to inquiries and reports in a timely manner as required by law.</p>
+
+    <!-- Additional Sections -->
+    <h2>15. Entire Agreement</h2>
+    <p>These Terms, together with the Privacy Policy and any other policies or agreements posted on our website or within the App, constitute the entire agreement between you and Lumenix Labs with respect to the Service and supersede all prior negotiations, representations, and agreements.</p>
+
+    <h2>16. Severability</h2>
+    <p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it valid, or if that is not possible, that provision shall be severed, and the remaining provisions shall continue in full force and effect.</p>
+
+    <h2>17. Waiver</h2>
+    <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision. No waiver shall be effective unless it is in writing and signed by an authorized representative of Lumenix Labs.</p>
+
+    <h2>18. No Assignment</h2>
+    <p>You may not assign or transfer your account or rights under these Terms without our written consent. Any attempt to do so is void. We may assign these Terms or any of our rights or obligations under these Terms without your consent.</p>
+
+    <div class="highlight">
+      <p><strong>Thank you for choosing Lumen Kids!</strong> We are committed to providing a safe, enriching educational experience for children. If you have feedback or suggestions, please reach out to us at privacy@lumenixlabs.app.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-nav">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="coppa.html">COPPA Notice</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 Lumenix Labs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
